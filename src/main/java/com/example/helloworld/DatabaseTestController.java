@@ -20,12 +20,12 @@ public class DatabaseTestController {
             Connection connection = DriverManager.getConnection(url, username, password);
             if (connection != null && !connection.isClosed()) {
                 connection.close();
-                return "✅ Database connection successful! Neon DB is working properly.";
+                return "Database connection successful! Neon DB is working properly.";
             } else {
-                return "❌ Database connection failed - connection is null or closed.";
+                return "Database connection failed - connection is null or closed.";
             }
         } catch (SQLException e) {
-            return "❌ Database connection failed: " + e.getMessage();
+            return "Database connection failed: " + e.getMessage();
         }
     }
 }

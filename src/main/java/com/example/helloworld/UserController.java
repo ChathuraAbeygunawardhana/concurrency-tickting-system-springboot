@@ -11,23 +11,18 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-public class HelloController {
+public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, World! Neon DB is connected and working!";
-    }
-    
     @GetMapping("/db-test")
     public ResponseEntity<String> testDatabase() {
         try {
             long userCount = userService.getUserCount();
-            return ResponseEntity.ok("✅ Database connection successful! Current user count: " + userCount);
+            return ResponseEntity.ok("Database connection successful! Current user count: " + userCount);
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("❌ Database connection failed: " + e.getMessage());
+            return ResponseEntity.status(500).body("Database connection failed: " + e.getMessage());
         }
     }
     

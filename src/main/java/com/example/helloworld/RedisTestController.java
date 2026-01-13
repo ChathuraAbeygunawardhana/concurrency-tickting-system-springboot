@@ -18,7 +18,7 @@ public class RedisTestController {
             redisTemplate.getConnectionFactory().getConnection().ping();
             
             // Test write
-            redisTemplate.opsForValue().set("test-key", "Hello from Redis Cloud!");
+            redisTemplate.opsForValue().set("test-key", "Redis connection test successful!");
             
             // Test read
             String value = redisTemplate.opsForValue().get("test-key");
